@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style22.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+    #lp_form {
+        background-color: #ca5fe8;
+        margin: 60px auto;
+        font-family: Raleway;
+        padding: 5%;
+        width: 40%;
+        min-width: 300px;
+        border-radius: 0px;
+        margin-left: 10%;
+      }
+      @media only screen and (max-width: 600px) {
+        #lp_form {
+        background-color: #008080;
+        margin: 60px auto;
+        font-family: Raleway;
+        padding: 5%;
+        width: 100%;
+        min-width: 300px;
+        border-radius: 0px;
+        
+      
+       }
+      }
+      
+      h1 {
+        text-align: center;  
+      }
+      
+      .form-control {
+        padding: 5px;
+        width: 100%;
+        font-size: 17px;
+        font-family: Raleway;
+        border: 1px solid #aaaaaa;
+      }
+      
+      /* Mark input boxes that gets an error on validation: */
+      input.invalid {
+        background-color: #ffdddd;
+      }
+      
+      /* Hide all steps by default: */
+      .tab {
+        display: none;
+      }
+      
+      button {
+        background-color: #04AA6D;
+        color: #ffffff;
+        border: none;
+        padding: 10px 30px;
+        font-size: 17px;
+        font-family: Raleway;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        opacity: 0.8;
+      }
+      
+      #prevBtn {
+        background-color: #bbbbbb;
+      }
+      
+      /* Make circles that indicate the steps of the form: */
+      .step {
+        /*height: 15px;
+        width: 15px;
+        margin: 0 2px;
+        background-color: #bbbbbb;
+        border: none;  
+        border-radius: 50%;
+        display: inline-block;
+        opacity: 0.5;*/
+      }
+      
+      .step.active {
+       /* opacity: 1;*/
+      }
+      
+      /* Mark the steps that are finished and valid: */
+      .step.finish {
+        background-color: #04AA6D;
+      }
+      .container {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  
+  
+  
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  
+
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+  
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 1px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+.chk{
+  height: 50px;
+  
+}
+.lst{
+  padding: 1px;
+  
+}
+</style>
+    <title>medicare01</title>
+    <link rel="icon"href="fav2.png" type="image/jpeg" sizes="">
+  </head>
+  <body onload="storeurl()">
+    <section class="text-gray-600 body-font">
+    <div class="container-flued header">
+        <div class="row">
+          <div class="col-md-1">
+          </div>
+            
+            <div class="col-md-8 py-3">
+                <p>Call now for a quote from a <br>Licenced insurance agent <br>800-536-5766 TTY:711 <br>We are available mon- fri 8 am - 8 pm Est</p>
+              </div>
+              <div class="col-md-3">
+                <img class="logo" src="medicare-02.png" alt="">
+              </div>
+          </div>
+    </div>
+  </section>       
+    <section class="bg">
+      <div class="container-flued underhead">
+          <div class="row"></div>
+          <div class="col"></div>
+          <div class="row"></div>
+          <div class="col"></div>
+          
+          <form id="lp_form" action="https://eeltracklp.leadspediatrack.com/post.do">
+            <input type="hidden" name="lp_offer_id" value="7" /> 
+               
+            <input type="hidden" name="lp_redirect_url" id="successUrl" value="" /> 
+            <input type="hidden" name="lp_redirect_fail_url" value="https://mymedicare.shop/submitted.html" />
+            
+            <!-- One "tab" for each step in the form: -->
+            <div class="tab" active>
+              <div>
+              <h3 class="text-white text-lg mb-1 font-medium title-font" style="text-align: center;">Please fill in the questionnaire</h3>
+              <p class="leading-relaxed mb-5 text-white" style="text-align: center;">and we will find you insurance!</p>
+              </div>
+              <p class=" ">ZIP code:</p>
+                <input type="text" id="input" class="form-control" name="zip_code" placeholder="444" text-align: center; onclick="detectBrowser()">
+              <p class=" ">Street Address:</p>
+              <input type="text" id="input" class="form-control" placeholder="Street Address" name="address">
+              <div class="container-flued">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="city">City:</label>
+                    <input type="text" placeholder="City" id="home_city" name="city" data-field="home_city" class="form-control">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="state">State:</label>
+                    <select name="state" id="home_state" data-field="home_state" class="form-control invalid">
+                <option value="">Select a State</option>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>
+                  </div>
+                </div>
+               </div>
+               <div class="container-flued">
+                <div class="row">
+                  <div class="col-md-6">
+                 <label for="height_feet">Height Feet:</label>
+                 <select name="height_feet" id="height_feet" class="form-control">
+                <option value="">Height Ft</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+              </select>
+                  </div>
+                  <div class="col-md-6">
+              <label for="height_inches">Height Inches:</label>
+              <select name="height_inches" id="height_inches" class="form-control">
+                <option value="">Height In</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+              </select>
+                  </div>
+                </div>
+               </div>
+               <div class="container-flued">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="weight">Weight:</label>
+                    <input type="number" placeholder="Weight" name="weight" id="weight" class="form-control">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="in_house">Household Size</label>
+                    <select name="in_house" id="household_size" class="form-control valid">
+                      <option value="1">1 person</option>
+                      <option value="2">2 people</option>
+                      <option value="3">3 people</option>
+                      <option value="4">4 people</option>
+                      <option value="5">5 people</option>
+                      <option value="6">6 people</option>
+                      <option value="7">7 people</option>
+                      <option value="8">8 people</option>
+                      <option value="9">9 people</option>
+                      <option value="10">10 people</option>
+                    </select>
+                  </div>
+                </div>
+               </div>
+               <div class="container-flued">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label class="clear-left" for="income">Household Income</label>
+                    <select name="income" id="income" class="form-control">
+                      <option value="20000">Under $20,000</option>
+                      <option value="29999">$20,000 - $29,999</option>
+                      <option value="39999">$30,000 - $39,999</option>
+                      <option value="49999" selected="">$40,000 - $49,999</option>
+                      <option value="59999">$50,000 - $59,999</option>
+                      <option value="69999">$60,000 - $69,999</option>
+                      <option value="79999">$70,000 - $79,999</option>
+                      <option value="89999">$80,000 - $89,999</option>
+                      <option value="109999">$90,000 - $109,999</option>
+                      <option value="119999">$110,000 - $119,999</option>
+                      <option value="129999">$120,000 - $129,999</option>
+                      <option value="139999">$130,000 - $139,999</option>
+                      <option value="149999">$140,000 - $149,999</option>
+                      <option value="150000+">$150,000 or more</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+              
+                  </div>
+                </div>
+               </div>
+            </div>
+            <div class="tab">
+              <div>
+              <h3 class="text-white text-lg mb-1 font-medium title-font" style="text-align: center;">Please fill in the questionnaire</h3>
+              <p class="leading-relaxed mb-5 text-white" style="text-align: center;">and we will find you insurance!</p>
+              </div>
+              <p>Currently a Smoker?</p>
+                 <input type="radio" id="No" name="tobacco" value="No">
+                 <label for="No">No</label>
+                 <input type="radio" id="Yes" name="tobacco" value="Yes">
+                 <label for="Yes">Yes</label><br><br>
+              <p>Expecting a Child?</p>
+                 <input type="radio" id="No" name="Expecting_Child" value="No">
+                 <label for="No">No</label>
+                 <input type="radio" id="Yes" name="Expecting_Child" value="Yes">
+                 <label for="Yes">Yes</label><br><br>
+              <p>Previously Denied Coverage?</p>
+                 <input type="radio" id="No" name="Denied_Coverage" value="No">
+                 <label for="No">No</label>
+                 <input type="radio" id="Yes" name="Denied_Coverage" value="Yes">
+                 <label for="Yes">Yes</label><br><br>
+              <p>Are You Currently Insured?</p>
+                 <input type="radio" id="No" name="Currently_Insured" value="No">
+                 <label for="No">No</label>
+                 <input type="radio" id="Yes" name="Currently_Insured" value="Yes">
+                 <label for="Yes">Yes</label><br><br>
+                 <label for="life_event">Major Life Events in the Past 60 Days:</label>
+                 <select name="Major_Life_Events" id="Major_Life_Events" class="form-control valid">
+                <option value="no">No</option>
+                <option value="lose coverage" selected="">Will lose coverage in 60 days</option>
+                <option value="Lost health insurance coverage">Lost health insurance coverage</option>
+                <option value="Got married or divorced">Got married or divorced</option>
+                <option value="Had a child/adopted child">Had a child/adopted child</option>
+                <option value="Had a death in immediate family">Had a death in immediate family</option>
+              </select>
+
+           </div>
+            
+            <div class="tab">
+              <div>
+              <h3 class="text-white text-lg mb-1 font-medium title-font" style="text-align: center;">Please fill in the questionnaire</h3>
+              <p class="leading-relaxed mb-5 text-white" style="text-align: center;">and we will find you insurance!</p>
+              </div>
+              <div class="container-flued">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="name_first">First Name:</label>
+                    <input type="text" placeholder="First Name" id="name_first" name="first_name" data-field="name_first" maxlength="50" minlength="2" class="form-control">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="name_last">Last Name:</label>
+                    <input type="text" placeholder="Last Name" id="name_last" name="last_name" data-field="name_last" maxlength="50" minlength="2" class="form-control">
+              
+                  </div>
+                </div>
+               </div>
+
+               <div class="container-flued">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="email">Email:</label>
+                    <input type="text" placeholder="Email" id="email" name="email_address" data-field="email" class="form-control">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="phone_home">Mobile Number:</label>
+                    <input type="tel" id="phone_home" name="phone_home" data-field="phone_home" class="form-control" placeholder="Mobile Number" maxlength="14">
+                  </div>
+                </div>
+               </div>
+
+               <div class="container-flued">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="tel" id="date_of_birth_visible" name="dob" data-field="dob" placeholder="MM/DD/YYYY" class="form-control" maxlength="10">
+                  </div>
+                  <div class="col-md-6">
+                    <p>Gender:</p>
+                 <input type="radio" id="Male" name="gender" value="Male">
+                 <label for="Male">Male</label>
+                 <input type="radio" id="Female" name="gender" value="Female">
+                 <label for="Female">Female</label><br><br>
+                  </div>
+                </div>
+               </div>
+              
+            </div>
+            
+
+            <div style="overflow:auto;">
+              <div style="float:right;">
+                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                <button type="button" id="nextBtn" onclick="nextPrev(1)" style="margin-top: 5%;">Next</button>
+              </div>
+            </div>
+            <!-- Circles which indicates the steps of the form: -->
+            <div style="text-align:center;margin-top:40px;">
+              <span class="step"></span>
+              <span class="step"></span>
+              <span class="step"></span>
+              
+              
+              
+            </div>
+            <input type="hidden" id="landing_page" name="landing_page" value="https://eeltracklp.leadspediatrack.com/posting-instructions.html">
+
+              <input type="hidden" id="lp_campaign_id" name="lp_campaign_id" value="60d45d69918c2" />
+
+              <input type="hidden" id="lp_s1" name="lp_s1" value="test">
+
+              <input type="hidden" id="lp_s2" name="lp_s2" value="test">
+
+              <input type="hidden" id="lp_s3" name="lp_s3" value="test">
+
+              <input type="hidden" id="lp_s4" name="lp_s4" value="test">
+
+              <input type="hidden" id="lp_s5" name="lp_s5" value="test">
+
+              <input type="hidden" id="data" name="ip_address" value="">
+
+              <input type="hidden" id="lp_test" name="lp_test" value="test">
+              <input type="hidden" id="tcpa_text" name="tcpa_text" value="dumy test">
+              <input type="hidden" id="tcpa_compliant" name="tcpa_compliant" value="dumy test">
+              <input type="hidden" id="tcpa_consent" name="tcpa_consent" value="dumy test">
+
+            <input type="hidden" id="user_agent" name="user_agent" value="this" />
+          </form>
+          <script>
+            var currentTab = 0; // Current tab is set to be the first tab (0)
+            showTab(currentTab); // Display the current tab
+            
+            function showTab(n) {
+              // This function will display the specified tab of the form...
+              var x = document.getElementsByClassName("tab");
+              x[n].style.display = "block";
+              //... and fix the Previous/Next buttons:
+              if (n == 0) {
+                document.getElementById("prevBtn").style.display = "none";
+              } else {
+                document.getElementById("prevBtn").style.display = "inline";
+              }
+              if (n == (x.length - 1)) {
+                document.getElementById("nextBtn").innerHTML = "Submit";
+              } else {
+                document.getElementById("nextBtn").innerHTML = "Next";
+              }
+              //... and run a function that will display the correct step indicator:
+              fixStepIndicator(n)
+            }
+            
+            function nextPrev(n) {
+              // This function will figure out which tab to display
+              var x = document.getElementsByClassName("tab");
+              // Exit the function if any field in the current tab is invalid:
+              if (n == 1 && !validateForm()) return false;
+              // Hide the current tab:
+              x[currentTab].style.display = "none";
+              // Increase or decrease the current tab by 1:
+              currentTab = currentTab + n;
+              // if you have reached the end of the form...
+              if (currentTab >= x.length) {
+                // ... the form gets submitted:
+                document.getElementById("lp_form").submit();
+                return false;
+              }
+              // Otherwise, display the correct tab:
+              showTab(currentTab);
+            }
+            
+            function validateForm() {
+              // This function deals with validation of the form fields
+              var x, y, i, valid = true;
+              x = document.getElementsByClassName("tab");
+              y = x[currentTab].getElementsByTagName("input");
+              // A loop that checks every input field in the current tab:
+              for (i = 0; i < y.length; i++) {
+                // If a field is empty...
+                if (y[i].value == "") {
+                  // add an "invalid" class to the field:
+                  y[i].className += " invalid";
+                  // and set the current valid status to false
+                  valid = false;
+                }
+              }
+              // If the valid status is true, mark the step as finished and valid:
+              if (valid) {
+                document.getElementsByClassName("step")[currentTab].className += " finish";
+              }
+              return valid; // return the valid status
+            }
+            
+            function fixStepIndicator(n) {
+              // This function removes the "active" class of all steps...
+              var i, x = document.getElementsByClassName("step");
+              for (i = 0; i < x.length; i++) {
+                x[i].className = x[i].className.replace(" active", "");
+              }
+              //... and adds the "active" class on the current step:
+              x[n].className += " active";
+            }
+            </script>
+        
+      </div>
+    </section>
+      <!-- end -->
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          
+          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+            <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full" src="pexels-noelle.png">
+              </div>
+              
+              <p class="text-base leading-relaxed mt-3" style="text-align: center;">Compare price from a<br> vraiety of private<br> insurance companies .</p>
+              
+            </div>
+            <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full" src="pexels-noelle1.png">
+              </div>
+              
+              <p class="text-base leading-relaxed mt-3" style="text-align: center;">Customized quote from a <br> simple, no hassle<br>  one-page form</p>
+              
+            </div>
+            <div class="p-4 md:w-1/3 sm:mb-0 mb-6">
+              <div class="rounded-lg h-64 overflow-hidden">
+                <img alt="content" class="object-cover object-center h-full w-full" src="pexels-noelle2.png">
+              </div>
+              
+              <p class="text-base leading-relaxed mt-3" style="text-align: center;">Direct access to Licenced <br>insurance agent helping to find<br> out about the right plan</p>
+              
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      
+    <!-- footer start -->
+    <section class="bg-gray-600 text-white text-center">
+    <div class="container-flued px-5 py-10 ">
+      <div class="row">
+        <div class="col-md-6 ftr">
+          <p>medicare PlansNow.org is committed to helping, <br> a plan tailored to your needs</p>
+        </div>
+        <div class="col-md-6 ftr">
+          <p>Speek to licance insurance agent <br>800-536-5766 TTY:711 <br>We are available mon- fri 8 am - 8 pm Est</p>
+        </div>
+      </div>
+    </div>
+    </section>
+      
+    <section class="bg-gray-400 text-white text-center">
+      <div class="container-flued px-5 py-10 ">
+        <div class="row">
+          <div class="col-md-12 ftr">
+            <p>Privicy Policy | Terms of Use | Contact Us </p>
+            <p>Medicare has nither reviewed nor endorsed this information. </p>
+            <p>Not connected with or endorsed by the us government or the fedral medicare program</p>
+            <p>This is a socitation of insurance.</p>
+            <p>A licansed insurance agent/producer may contact you.</p>
+            <p>Copyright &copy 2021 Medicare PlansNow. All rights reserved</p>
+          </div>
+        </div>
+      </div>
+      </section>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      (function() {
+      var field = 'trusted_form_cert_id';
+      var provideReferrer = false;
+      var invertFieldSensitivity = false;
+      var tf = document.createElement('script');
+      tf.type = 'text/javascript'; tf.async = true;
+      tf.src = 'http' + ('https:' == document.location.protocol ? 's' : '') +
+      '://api.trustedform.com/trustedform.js?provide_referrer=' + escape(provideReferrer) + '&field=' + escape(field) + '&l='+new Date().getTime()+Math.random() + '&invert_field_sensitivity=' + invertFieldSensitivity;
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tf, s); }
+      )();
+      </script>
+      <noscript>
+      <img src="http://api.trustedform.com/ns.gif" />
+      </noscript>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script type="text/javascript">
+      
+          $.getJSON("https://api.ipify.org?format=json", function(data) { 
+      
+              $("#ip").html(data.ip); 
+              
+          }) 
+      
+      </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<script>
+  setTimeout(function(){
+    if ($('#msg').length > 0){
+      $('#msg').remove();
+    }
+  }, 1)
+
+  // <!-- User Agent -->
+</script>
+<script type="text/javascript">
+    function detectBrowser() {
+    let user_agent; 
+     if((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1 ) 
+
+    {
+       // document.getElementById('user_agent');
+       user_agent="OPera";
+    }
+    else if(navigator.userAgent.indexOf("Chrome") != -1 )
+    {
+       // document.getElementById('user_agent');   
+       user_agent="Chrome";
+        }
+    else if(navigator.userAgent.indexOf("Safari") != -1)
+    {
+       document.getElementById('user_agent');    }
+    else if(navigator.userAgent.indexOf("Firefox") != -1 ) 
+    {
+          // document.getElementById('user_agent');
+          user_agent="Firefox";
+    }
+    else if((navigator.userAgent.indexOf("Microsoft Edge") != -1 ) || (!!document.documentMode == true )) //IF IE > 10
+    {
+      user_agent="Microsoft Edge";
+    }  
+    else 
+    {
+       user_agent="Unknown";
+    }
+   document.getElementById('user_agent').value=user_agent;
+   // alert(user_agent);
+   console.log(document.getElementById('user_agent').value);
+    }
+</script>
+<script>
+        
+      
+        function storeurl() {
+          console.log("Value before",document.getElementById('lp_s1').value);
+          console.log("Value before", document.getElementById('lp_s2').value);
+            var url_string = document.URL; //window.location.href
+            var url = new URL(url_string);
+            var affid = url.searchParams.get("affid");
+            console.log("value",affid);
+            var tid = url.searchParams.get("tid"); 
+            console.log("value",tid);
+            document.getElementById('lp_s1').value = affid;
+            console.log("Value after", document.getElementById('lp_s1').value);
+            document.getElementById('lp_s2').value = tid;
+            console.log("Value after", document.getElementById('lp_s2').value);
+            // rid
+            const rid = url.searchParams.get('rid')
+            let passurl = "https://mymedicare.shop/submitted.html?rid=" + rid;
+            document.getElementById('successUrl').value = passurl;
+             console.log( document.getElementById('successUrl').value);
+            
+        }
+    </script>
+    <script>
+    $.getJSON("https://api.ipify.org?format=json",
+               function(data) {
+      
+                // Setting text of element P with id gfg
+                $("#data").html(data.ip);
+            }) 
+    </script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
